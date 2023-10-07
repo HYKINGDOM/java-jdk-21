@@ -11,19 +11,19 @@ public class StructuredTaskScopeTest {
     @Test
     public void test_demo_01() throws InterruptedException {
 
-        StructuredTaskScope.ShutdownOnFailure scope = new StructuredTaskScope.ShutdownOnFailure();
-
-        Supplier<String> orderSupplier = scope.fork(new GetOrderTask());
-
-        Supplier<String> userSupplier = scope.fork(new GetUserTask());
-
-
-        scope.join();
-
-        String order = orderSupplier.get();
-        String user = userSupplier.get();
-
-        System.out.println(order + user);
+//        StructuredTaskScope.ShutdownOnFailure scope = new StructuredTaskScope.ShutdownOnFailure();
+//
+//        Supplier<String> orderSupplier = scope.fork(new GetOrderTask());
+//
+//        Supplier<String> userSupplier = scope.fork(new GetUserTask());
+//
+//
+//        scope.join();
+//
+//        String order = orderSupplier.get();
+//        String user = userSupplier.get();
+//
+//        System.out.println(order + user);
 
     }
 
