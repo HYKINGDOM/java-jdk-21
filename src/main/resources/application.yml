@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: skill-server
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:h2:file:./data/db/skillserver;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+skill-server:
+  workspace:
+    root: ./workspace
+    private-skills-dir: ./workspace/private-skills
+    mirrors-dir: ./workspace/mirrors
+    temp-dir: ./workspace/tmp
+    package-dir: ./workspace/packages
+    search-index-dir: ./data/index
+  cleanup:
+    deleted-retention-days: 7
+    edit-session-timeout-minutes: 20
+    purge-cron: "0 0 3 * * *"
+    sync-cron: "0 */30 * * * *"

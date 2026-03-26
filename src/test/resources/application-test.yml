@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:skillserver-test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: false
+
+skill-server:
+  workspace:
+    root: ./target/test-workspace
+    private-skills-dir: ./target/test-workspace/private-skills
+    mirrors-dir: ./target/test-workspace/mirrors
+    temp-dir: ./target/test-workspace/tmp
+    package-dir: ./target/test-workspace/packages
+    search-index-dir: ./target/test-data/index
